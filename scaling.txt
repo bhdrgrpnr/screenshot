@@ -1,0 +1,7 @@
+I am currently saving all files under /var/www/html. After some time, when the file number exceeds some specific amount, linux machines will be having hards times fetching specific file from a directory that has thousands of files. So we should put them in different folders, so file indexing will work better. 
+
+Still 1 machine not enough ? So there comes to the stage with more machines and load balancers. We can hash the file name with the number of servers we run for serving photos. It will work fine if we distrbute the load evenly around several servers. But what happens if we decide to increase or decrease the number of servers ? our load balancing algorithm will fail and wont be able to address the location of the photo that is requested. We should also have a solution for that. Can we discuss it together ? possibly on a whiteboard ?
+
+
+
+To process the incoming requests is easier. If we expect a high number of requests in a short period of time, we should put the requests in a queue, kafka or activemq, and have several work threads on different servers to process the photos and put them in different storage machines according to our load balancing algorithm.

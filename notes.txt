@@ -1,0 +1,24 @@
+I knew that I need a library, I googled and found that selenium drivers are best to take a screenshot of a website. Cool and easy. Springboot with selenium libraries, with chromedriver(some kind of dll to run with chrome)  everything was fine on my local. I decided to dockerize it. I got a machine from digitalocean(ubuntu) installed jdk and docker. I run my container on 159.89.27.130 but container could not start chromedriver. I tried many ways but failed in the end. The problem is probaby the container did not have chrome installed. The container is still up and running on port 5000 but still having problems, you can check :http://159.89.27.130:5000/render/render?url=http://odamax.com
+
+Anyway. I moved on with just spring boot application. It is working on http://159.89.27.130
+I installed nginx to serve files from /var/www/html on port 80
+
+ssh password for root is 'askme' , you may login and check if you like to.
+
+Api usage:
+
+request:
+http://159.89.27.130:8080/render/render?url=https://detectify.com/
+
+response:
+{
+"url": "http://159.89.27.130/7un59zkq.jpg",
+"size": 25832407040
+}
+
+response includes url for the screenshot. The request do not allow multiple urls to screenshot but it would be just a for loop that will process each url to screenshot one by one.
+
+
+
+
+
